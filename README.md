@@ -61,6 +61,8 @@ The starter kit includes a working example app that puts all of the above to use
 
 ## Development
 
+HMR will be enabled in development.
+
 This boilerplate project includes React-friendly ESLint configuration.
 
 `npm run eslint`
