@@ -1,28 +1,31 @@
 {
-  "name": "timedapp-client",
-  "version": "0.1.0",
-  "description": "A boilerplate for running a Webpack workflow in Node express",
+  "name": "react-redux-auth0-kit",
+  "version": "1.0.0",
+  "description": "Minimal starter boilerplate project with React, Redux, React Router and Auth0 authentication",
   "main": "server.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/amaurymartiny/timed.git"
+    "url": "https://github.com/amaurymartiny/react-redux-auth0-kit.git"
   },
   "keywords": [
-    "express",
-    "webpack",
-    "node"
+    "react",
+    "redux",
+    "react-router",
+    "auth0",
+    "boilerplate",
+    "starter"
   ],
-  "author": "Amaury",
+  "author": "Amaury Martiny",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/amaurymartiny/timed/issues"
+    "url": "https://github.com/amaurymartiny/react-redux-auth0-kit/issues"
   },
-  "homepage": "https://github.com/amaurymartiny/timed",
+  "homepage": "https://github.com/amaurymartiny/react-redux-auth0-kit",
   "scripts": {
-    "test": "",
+    "test": "echo TODO for next version",
     "start": "node server",
     "clean": "rimraf dist",
-    "prebuild": "clean",
+    "prebuild": "npm run clean",
     "build": "cross-env NODE_ENV=production webpack --config ./webpack.production.config.js --progress --profile --colors",
     "eslint": "eslint ."
   },
