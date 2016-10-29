@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router'
 
-const Header = ({ isAuthenticated, profile, onLoginClick, onLogoutClick }) =>
+const Header = ({ isAuthenticated, profile, error, onLoginClick, onLogoutClick }) =>
   <div>
     <h1>React Redux Auth0 Kit</h1>
     <ul>
@@ -17,11 +17,15 @@ const Header = ({ isAuthenticated, profile, onLoginClick, onLogoutClick }) =>
         <button onClick={() => onLogoutClick()}>Logout</button>
       </div>
     )}
+    { error &&
+      <p>{error}</p>
+    }
   </div>
 
 Header.propTypes = {
   isAuthenticated: React.PropTypes.bool.isRequired,
   profile: React.PropTypes.object,
+  error: React.PropTypes.string,
   onLoginClick: React.PropTypes.func.isRequired,
   onLogoutClick: React.PropTypes.func.isRequired
 }

@@ -3,10 +3,11 @@ import { loginRequest, logoutSuccess } from '../actions'
 import Header from '../components/Header'
 
 const mapStateToProps = (state) => {
-  const { isAuthenticated, profile } = state.auth
+  const { isAuthenticated, profile, error } = state.auth
   return {
     isAuthenticated,
-    profile
+    profile,
+    error
   }
 }
 
