@@ -1,8 +1,8 @@
 import * as ActionTypes from '../actions'
-import { AuthService } from '../utils/AuthService'
+import AuthService from '../utils/AuthService'
 
 export default function auth(state = {
-  isAuthenticated: AuthService.checkTokenExpiry(),
+  isAuthenticated: !AuthService.isTokenExpired(),
   isFetching: false,
   profile: AuthService.getProfile(),
   error: null

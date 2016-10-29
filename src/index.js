@@ -12,7 +12,7 @@ const history = syncHistoryWithStore(browserHistory, store)
 
 render(
   <Provider store={store}>
-    <Router history={history} routes={createRoutes(store)} />
+    <Router history={history} routes={createRoutes()} />
   </Provider>,
   document.getElementById('root')
 )

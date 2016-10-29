@@ -2,10 +2,9 @@ import { connect } from 'react-redux'
 import { loginRequest, logoutSuccess } from '../actions'
 import Header from '../components/Header'
 
-const mapStateToProps = (state, ownProps) => {
+const mapStateToProps = (state) => {
   const { isAuthenticated, profile } = state.auth
   return {
-    authService: ownProps.authService,
     isAuthenticated,
     profile
   }
@@ -13,8 +12,8 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    onLoginClick: (authService) => dispatch(loginRequest(authService)),
-    onLogoutClick: (authService) => dispatch(logoutSuccess(authService))
+    onLoginClick: () => dispatch(loginRequest()),
+    onLogoutClick: () => dispatch(logoutSuccess())
   }
 }
 
