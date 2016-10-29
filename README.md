@@ -34,9 +34,20 @@ Auth0 helps you to:
 * Analytics of how, when and where users are logging in.
 * Pull data from other sources and add it to the user profile, through [JavaScript rules](https://docs.auth0.com/rules).
 
-The library `auth0-lock` provides the user authentication, and we also have `src/utils/AuthService.js` class to wrap this Lock Widget usage and manage the localStorage items.
+### AuthService
+
+The library `auth0-lock` provides the user authentication, and I also have a `src/utils/AuthService.js` class to wrap this Lock Widget usage and manage the localStorage items.
+
+I'm using the latest Auth0 Lock 10 version in redirect mode, which means here's the flow:
+* ->Login widget shows login panel
+* ->Redirect to auth0 to check login creds
+* ->Redirect back to localhost:3000/callback
+* ->Instantiated AuthService waits for 'authenticated' event to fire
+* ->Redirects back to homepage
 
 ### Libraries
+
+This starter kit is minimal, only the strict necessary is added.
 
 * [react](https://github.com/facebook/react)
 * [redux](https://github.com/rackt/redux)
