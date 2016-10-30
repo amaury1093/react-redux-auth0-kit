@@ -1,16 +1,5 @@
 import React from 'react'
-import HeaderContainer from '../containers/HeaderContainer'
-
-// const App = ({ route, children, checkLogin }) =>
-//   <div>
-//     <HeaderContainer />
-//     {children}
-//   </div>
-
-// App.propTypes = {
-//   route: React.PropTypes.object.isRequired,
-//   children: React.PropTypes.element.isRequired
-// }
+import HeaderContainer from '../../containers/HeaderContainer'
 
 class App extends React.Component {
   constructor(props) {
@@ -32,4 +21,5 @@ App.propTypes = {
   children: React.PropTypes.element.isRequired,
   checkLogin: React.PropTypes.func.isRequired
 }
+
 export default App

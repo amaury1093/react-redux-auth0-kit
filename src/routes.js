@@ -2,7 +2,7 @@ import React from 'react'
 import { Route, IndexRoute } from 'react-router'
 
 import AppContainer from './containers/AppContainer'
-import HomePage from './components/HomePage'
+import HomePage from './components/HomePage/HomePage'
 import AboutPage from './components/AboutPage'
 import NotFoundPage from './components/NotFoundPage'
 
