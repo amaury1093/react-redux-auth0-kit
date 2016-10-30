@@ -20,6 +20,10 @@ module.exports = {
       inject: 'body',
       filename: 'index.html'
     }),
+    new DotenvPlugin({
+      sample: './.env.example',
+      path: './.env'
+    }),
     new webpack.optimize.UglifyJsPlugin({
       compressor: {
         warnings: false,
@@ -35,9 +39,6 @@ module.exports = {
       query: {
         "presets": ["es2015", "stage-0", "react"]
       }
-    }, {
-      test: /\.json?$/,
-      loader: 'json'
     }, {
       test: /\.css$/,
       loader: 'css?modules&localIdentName=[name]---[local]---[hash:base64:5]!postcss'
