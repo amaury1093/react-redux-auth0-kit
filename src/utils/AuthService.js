@@ -10,14 +10,14 @@ export default class AuthService {
       auth: {
         redirectUrl: 'http://localhost:3000/callback',
         responseType: 'token'
-      }
+      },
       // theme: {
       //   logo: LogoImg,
       //   primaryColor: "#b81b1c"
       // },
-      // languageDictionary: {
-      //   title: "My Company"
-      // }
+      languageDictionary: {
+        title: 'React Redux Auth0 Kit'
+      }
     })
     // binds login functions to keep this context
     this.login = this.login.bind(this)
