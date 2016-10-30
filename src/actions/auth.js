@@ -9,10 +9,10 @@ export const LOGOUT_SUCCESS = 'LOGOUT_SUCCESS'
 const authService = new AuthService(process.env.AUTH0_CLIENT_ID, process.env.AUTH0_DOMAIN)
 
 // Listen to authenticated event from AuthService and get the profile of the user
-// Done on every startup
+// Done on every page startup
 export function checkLogin() {
   return (dispatch) => {
-    // Add callback for lock `authenticated` event
+    // Add callback for lock's `authenticated` event
     authService.lock.on('authenticated', (authResult) => {
       authService.lock.getProfile(authResult.idToken, (error, profile) => {
         if (error)
@@ -22,7 +22,7 @@ export function checkLogin() {
         return dispatch(loginSuccess(profile))
       })
     })
-    // Add callback for lock `authorization_error` event
+    // Add callback for lock's `authorization_error` event
     authService.lock.on('authorization_error', (error) => dispatch(loginError(error)))
   }
 }

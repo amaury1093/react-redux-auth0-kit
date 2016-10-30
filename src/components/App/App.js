@@ -4,7 +4,7 @@ import HeaderContainer from '../../containers/HeaderContainer'
 class App extends React.Component {
   constructor(props) {
     super(props)
-    this.props.checkLogin()
+    this.props.checkLogin() // check is Auth0 lock is authenticating after login callback
   }
 
   render() {

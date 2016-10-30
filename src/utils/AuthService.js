@@ -5,7 +5,7 @@ import jwtDecode from 'jwt-decode'
 
 export default class AuthService {
   constructor(clientId, domain) {
-    // Configure Auth0
+    // Configure Auth0 lock
     this.lock = new Auth0Lock(clientId, domain, {
       auth: {
         redirectUrl: 'http://localhost:3000/callback',
