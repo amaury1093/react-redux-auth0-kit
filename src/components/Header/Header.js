@@ -1,10 +1,11 @@
 import React from 'react'
 import { Link } from 'react-router'
+import styles from './Header.css'
 
 const Header = ({ isAuthenticated, profile, error, onLoginClick, onLogoutClick }) =>
   <div>
     <h1>React Redux Auth0 Kit</h1>
-    <ul>
+    <ul className={styles.listInline}>
       <li><Link to='/'>Home</Link></li>
       <li><Link to='/about'>About</Link></li>
     </ul>
