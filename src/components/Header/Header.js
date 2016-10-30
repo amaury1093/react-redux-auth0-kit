@@ -1,21 +1,21 @@
 import React from 'react'
 import { Link } from 'react-router'
-import styles from './Header.css'
+import './Header.css'
 
 const Header = ({ isAuthenticated, profile, error, onLoginClick, onLogoutClick }) =>
   <div>
     <h1>React Redux Auth0 Kit</h1>
-    <ul className={styles.listInline}>
+    <ul className="list-inline">
       <li><Link to='/'>Home</Link></li>
       <li><Link to='/about'>About</Link></li>
     </ul>
     { !isAuthenticated ? (
-      <button onClick={() => onLoginClick()}>Login</button>
+      <button onClick={onLoginClick}>Login</button>
     ) : (
       <div>
         <img src={profile.picture} height="40px" />
         <span>Welcome, {profile.nickname}</span>
-        <button onClick={() => onLogoutClick()}>Logout</button>
+        <button onClick={onLogoutClick}>Logout</button>
       </div>
     )}
     { error &&
