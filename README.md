@@ -69,7 +69,7 @@ This boilerplate project includes React-friendly ESLint configuration.
 
 ## Testing
 
-Currently doesn't support any testing. This will be implemented in the next step.
+`npm test` to run all tests.
 
 ## Deployment
 
