@@ -69,7 +69,7 @@ This boilerplate project includes React-friendly ESLint configuration.
 
 ## Testing
 
-`npm test` to run all tests.
+`npm test` to run all tests. I use mocha/chai to run tests, and [enzyme](https://github.com/airbnb/enzyme) for unit testing React components.
 
 ## Deployment
 

@@ -10,24 +10,26 @@ describe('(Actions) auth', () => {
     expect(actions.loginRequest()).to.deep.equal(expectedAction)
   })
 
+  // TODO: fake browserHistory first for this test to work
   // it('should create an action for LOGIN_SUCCESS', () => {
-  //   const mockProfile = { mockProperty: 'mockValue' }
+  //   const fakeProfile = { fakeProperty: 'fakeValue' }
   //   const expectedAction = {
   //     type: actions.LOGIN_SUCCESS,
-  //     profile: mockProfile
+  //     profile: fakeProfile
   //   }
-  //   expect(actions.loginSuccess(mockProfile)).to.deep.equal(expectedAction)
+  //   expect(actions.loginSuccess(fakeProfile)).to.deep.equal(expectedAction)
   // })
 
   it('should create an action for LOGIN_ERROR', () => {
-    const mockError = 'mockError'
+    const fakeError = 'fakeError'
     const expectedAction = {
       type: actions.LOGIN_ERROR,
-      error: mockError
+      error: fakeError
     }
-    expect(actions.loginError(mockError)).to.deep.equal(expectedAction)
+    expect(actions.loginError(fakeError)).to.deep.equal(expectedAction)
   })
 
+  // TODO: fake browserHistory first for this test to work
   // it('should create an action for LOGOUT_SUCCESS', () => {
   //   const expectedAction = {
   //     type: actions.LOGOUT_SUCCESS

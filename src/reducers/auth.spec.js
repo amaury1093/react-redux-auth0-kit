@@ -22,25 +22,25 @@ describe('(Reducer) auth', () => {
   })
 
   it('should handle LOGIN_SUCCESS', () => {
-    expect(reducer(undefined, { type: LOGIN_SUCCESS, profile: { mockProperty: 'mockValue' } })).to.deep.equal({
+    expect(reducer(undefined, { type: LOGIN_SUCCESS, profile: { fakeProperty: 'fakeValue' } })).to.deep.equal({
       isAuthenticated: true,
       isFetching: false,
-      profile: { mockProperty: 'mockValue' },
+      profile: { fakeProperty: 'fakeValue' },
       error: null
     })
   })
 
   it('should handle LOGIN_ERROR', () => {
-    expect(reducer(undefined, { type: LOGIN_ERROR, error: 'mockError' })).to.deep.equal({
+    expect(reducer(undefined, { type: LOGIN_ERROR, error: 'fakeError' })).to.deep.equal({
       isAuthenticated: false,
       isFetching: false,
       profile: {},
-      error: 'mockError'
+      error: 'fakeError'
     })
   })
 
   it('should handle LOGOUT_SUCCESS', () => {
-    expect(reducer(undefined, { type: LOGOUT_SUCCESS, error: 'mockError' })).to.deep.equal({
+    expect(reducer(undefined, { type: LOGOUT_SUCCESS, error: 'fakeError' })).to.deep.equal({
       isAuthenticated: false,
       isFetching: false,
       profile: {},
