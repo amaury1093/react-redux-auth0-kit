@@ -1,5 +1,5 @@
 import React from 'react'
-import HeaderContainer from '../../containers/HeaderContainer'
+import { HeaderContainer } from '../../containers'
 
 class App extends React.Component {
   constructor(props) {
