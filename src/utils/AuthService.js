@@ -23,9 +23,9 @@ export default class AuthService {
     this.login = this.login.bind(this)
   }
 
-  //
+  // ======================================================
   // Public methods
-  // -----------------------------------------------------------------------------
+  // ======================================================
   login() {
     // Call the show method to display the widget.
     this.lock.show()
@@ -37,9 +37,9 @@ export default class AuthService {
     localStorage.removeItem('profile')
   }
 
-  //
+  // ======================================================
   // Static methods
-  // -----------------------------------------------------------------------------
+  // ======================================================
   static getProfile() {
     // Retrieves the profile data from localStorage
     const profile = localStorage.getItem('profile')

@@ -1,7 +1,7 @@
 import * as ActionTypes from '../actions'
 import AuthService from '../utils/AuthService'
 
-export default function auth(state = {
+export default function authReducer(state = {
   isAuthenticated: !AuthService.isTokenExpired(),
   isFetching: false,
   profile: AuthService.getProfile(),
@@ -13,9 +13,9 @@ export default function auth(state = {
     case ActionTypes.LOGIN_SUCCESS:
       return {...state, isFetching: false, isAuthenticated: true, profile: action.profile}
     case ActionTypes.LOGIN_ERROR:
-      return {...state, isFetching: false, isAuthenticated: false, profile: null, error: action.error}
+      return {...state, isFetching: false, isAuthenticated: false, profile: {}, error: action.error}
     case ActionTypes.LOGOUT_SUCCESS:
-      return {...state, isAuthenticated: false, profile: null}
+      return {...state, isAuthenticated: false, profile: {}}
     default:
       return state
   }

@@ -5,7 +5,7 @@
 // import { HomePage } from '../'
 // // import { HeaderContainer } from '../../containers'
 
-// describe('<App />', () => {
+// describe('(Component) <App />', () => {
 //   it('should render a header container', () => {
 //     const wrapper = shallow(<App checkLogin={() => {}}><HomePage /></App>)
 //     expect(wrapper.find('HeaderContainer')).to.have.length(1)

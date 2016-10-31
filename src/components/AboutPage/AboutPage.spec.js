@@ -3,7 +3,7 @@ import { expect } from 'chai'
 import { shallow } from 'enzyme'
 import AboutPage from './AboutPage'
 
-describe('<AboutPage />', () => {
+describe('(Component) <AboutPage />', () => {
   it('should render the correct page title', () => {
     const wrapper = shallow(<AboutPage />)
     expect(wrapper.find('h2').text()).to.equal('About')
