@@ -2,6 +2,10 @@
 
 Minimal starter boilerplate project with React, Redux, React Router and Auth0 authentication
 
+## News
+
+**Upgrading to webpack2. Come back soon for an update of this boilerplate.**
+
 ## Getting started
 
 First [create an auth0 account](https://manage.auth0.com/). Then run the following commands. Make sure your `.env` file has the correct values from your auth0 account.
