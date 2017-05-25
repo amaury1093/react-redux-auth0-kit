@@ -31,25 +31,25 @@ export default class AuthService {
     this.lock.show()
   }
 
+  // ======================================================
+  // Static methods
+  // ======================================================
+  static loggedIn() {
+    // Checks if there is a saved token and it's still valid
+    const token = AuthService.getToken()
+    return !!token && !AuthService.isTokenExpired(token)
+  }
+
   logout(){
     // Clear user token and profile data from localStorage
     localStorage.removeItem('id_token')
     localStorage.removeItem('profile')
   }
 
-  // ======================================================
-  // Static methods
-  // ======================================================
   static getProfile() {
     // Retrieves the profile data from localStorage
     const profile = localStorage.getItem('profile')
     return profile ? JSON.parse(localStorage.profile) : {}
-  }
-
-  static loggedIn() {
-    // Checks if there is a saved token and it's still valid
-    const token = AuthService.getToken()
-    return !!token && !AuthService.isTokenExpired(token)
   }
 
   static setProfile(profile) {
@@ -57,12 +57,6 @@ export default class AuthService {
     localStorage.setItem('profile', JSON.stringify(profile))
     // Triggers profile_updated event to update the UI
   }
-
-  // getProfile(){
-  //   // Retrieves the profile data from localStorage
-  //   const profile = localStorage.getItem('profile')
-  //   return profile ? JSON.parse(localStorage.profile) : {}
-  // }
 
   static setToken(idToken) {
     // Saves user token to localStorage

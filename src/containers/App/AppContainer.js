@@ -1,16 +1,17 @@
 import { connect } from 'react-redux'
-import { checkLogin } from '../../actions'
-import { App } from '../../components'
+import { loginSuccess, loginError } from '../../actions'
+import AppView from './AppView'
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    checkLogin: () => dispatch(checkLogin())
+    loginSuccess: () => dispatch(loginSuccess()),
+    loginError: () => dispatch(loginError())
   }
 }
 
 const AppContainer = connect(
   null, // no mapStateToProps
   mapDispatchToProps
-)(App)
+)(AppView)
 
 export default AppContainer

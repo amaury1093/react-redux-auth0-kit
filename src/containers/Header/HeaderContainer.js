@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 import { loginRequest, logoutSuccess } from '../../actions'
-import { Header } from '../../components'
+import HeaderView from './HeaderView'
 
 const mapStateToProps = (state) => {
   const { isAuthenticated, profile, error } = state.auth
@@ -13,14 +13,14 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    onLoginClick: () => dispatch(loginRequest()),
-    onLogoutClick: () => dispatch(logoutSuccess())
+    loginRequest: () => dispatch(loginRequest()),
+    logoutSuccess: () => dispatch(logoutSuccess())
   }
 }
 
 const HeaderContainer = connect(
   mapStateToProps,
   mapDispatchToProps
-)(Header)
+)(HeaderView)
 
 export default HeaderContainer
