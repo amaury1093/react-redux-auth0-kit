@@ -43,31 +43,31 @@ export default class AuthService {
   }
 
   static logout(){
-    // Clear user token and profile data from localStorage
-    localStorage.removeItem('id_token')
-    localStorage.removeItem('profile')
+    // Clear user token and profile data from window.localStorage
+    window.localStorage.removeItem('id_token')
+    window.localStorage.removeItem('profile')
   }
 
   static getProfile() {
-    // Retrieves the profile data from localStorage
-    const profile = localStorage.getItem('profile')
-    return profile ? JSON.parse(localStorage.profile) : {}
+    // Retrieves the profile data from window.localStorage
+    const profile = window.localStorage.getItem('profile')
+    return profile ? JSON.parse(window.localStorage.profile) : {}
   }
 
   static setProfile(profile) {
-    // Saves profile data to localStorage
-    localStorage.setItem('profile', JSON.stringify(profile))
+    // Saves profile data to window.localStorage
+    window.localStorage.setItem('profile', JSON.stringify(profile))
     // Triggers profile_updated event to update the UI
   }
 
   static setToken(idToken) {
-    // Saves user token to localStorage
-    localStorage.setItem('id_token', idToken)
+    // Saves user token to window.localStorage
+    window.localStorage.setItem('id_token', idToken)
   }
 
   static getToken() {
-    // Retrieves the user token from localStorage
-    return localStorage.getItem('id_token')
+    // Retrieves the user token from window.localStorage
+    return window.localStorage.getItem('id_token')
   }
 
   static getTokenExpirationDate() {

@@ -1,4 +1,8 @@
 import { expect } from 'chai'
+
+import mockStorage from '../../test/mockStorage'
+window.localStorage = mockStorage()
+
 import { LOGIN_REQUEST, LOGIN_SUCCESS, LOGIN_ERROR, LOGOUT_SUCCESS} from '../actions'
 import reducer from './auth'
 
