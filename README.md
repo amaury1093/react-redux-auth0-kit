@@ -4,7 +4,7 @@ Minimal starter boilerplate project with React, Redux, React Router and Auth0 au
 
 ## News
 
-I removed webpack, and the boilerplate now uses Facebook's `create-react-app` for all tooling (development server, testing, building). If you wish to use webpack instead, just run `yarn run eject`. See more on create-react-app's [docs]((https://github.com/facebookincubator/create-react-app)) about ejecting.
+I removed webpack, and the boilerplate now uses Facebook's `create-react-app` for all tooling (development server, testing, building). If you wish to use webpack instead, just run `yarn run eject`. See more on `create-react-app`'s [official docs](https://github.com/facebookincubator/create-react-app) about ejecting.
 
 ## Getting started
 
@@ -15,15 +15,13 @@ First [create an auth0 account](https://manage.auth0.com/). Then run the followi
 yarn install
 
 # copy configuration and replace with your own
-cp cp src/utils/config.example.js src/utils/config.js
+cp src/utils/config.example.js src/utils/config.js
 
 # Run
 yarn start
 ```
 
 Open `http://localhost:3000` to see the app running.
-
-The `yarn start` command uses Facebook's [`create-react-app`](https://github.com/facebookincubator/create-react-app) to run the development server.
 
 ## Features
 
@@ -66,7 +64,7 @@ The starter kit includes a working example app that puts all of the above to use
 
 HMR is unfortunately not enabled during development, because `create-react-app` doesn't support it.
 
-This boilerplate project includes React-friendly ESLint configuration.
+This boilerplate project includes React-friendly ESLint configuration. Run the following command to see linting errors:
 
 `yarn run eslint`
 
