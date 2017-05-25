@@ -1,10 +1,11 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 
 import AuthService from '../../utils/AuthService'
 import './Header.css'
 
-const Header = ({ isAuthenticated, profile, error, loginRequest, logoutSuccess }) =>
+const Header = ({ authService, isAuthenticated, profile, error, loginRequest, logoutSuccess }) =>
   <div>
     <h1>React Redux Auth0 Kit</h1>
     <ul className="list-inline">
@@ -12,7 +13,14 @@ const Header = ({ isAuthenticated, profile, error, loginRequest, logoutSuccess }
       <li><Link to='/about'>About</Link></li>
     </ul>
     { !isAuthenticated ? (
-      <button onClick={loginRequest}>Login</button>
+      <button
+        onClick={() => {
+          authService.login()
+          loginRequest()
+        }}
+      >
+        Login
+      </button>
     ) : (
       <div>
         <img src={profile.picture} height="40px" alt="profile" />
@@ -20,7 +28,7 @@ const Header = ({ isAuthenticated, profile, error, loginRequest, logoutSuccess }
         <button 
           onClick={() => {
             logoutSuccess()
-            AuthService.logout()
+            AuthService.logout() // careful, this is a static method
           }}
         >
           Logout
@@ -33,11 +41,11 @@ const Header = ({ isAuthenticated, profile, error, loginRequest, logoutSuccess }
   </div>
 
 Header.propTypes = {
-  isAuthenticated: React.PropTypes.bool.isRequired,
-  profile: React.PropTypes.object,
-  error: React.PropTypes.string,
-  loginRequest: React.PropTypes.func.isRequired,
-  logoutSuccess: React.PropTypes.func.isRequired
+  isAuthenticated: PropTypes.bool.isRequired,
+  profile: PropTypes.object,
+  error: PropTypes.string,
+  loginRequest: PropTypes.func.isRequired,
+  logoutSuccess: PropTypes.func.isRequired
 }
 
 export default Header

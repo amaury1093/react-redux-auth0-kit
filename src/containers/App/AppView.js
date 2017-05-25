@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
 import HeaderContainer from '../Header/HeaderContainer'
@@ -30,7 +31,7 @@ class App extends React.Component {
     return(
       <Router>
         <div>
-          <HeaderContainer />
+          <HeaderContainer authService={this.authService} />
           <Switch>
             <Route exact path="/" component={HomePage}/>
             <Route path="/about" component={AboutPage}/>
@@ -43,8 +44,8 @@ class App extends React.Component {
 }
 
 App.propTypes = {
-  loginSuccess: React.PropTypes.func.isRequired,
-  loginError: React.PropTypes.func.isRequired
+  loginSuccess: PropTypes.func.isRequired,
+  loginError: PropTypes.func.isRequired
 }
 
 export default App
