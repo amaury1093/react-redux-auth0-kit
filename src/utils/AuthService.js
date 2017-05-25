@@ -1,12 +1,14 @@
 import Auth0Lock from 'auth0-lock'
 import jwtDecode from 'jwt-decode'
 
+import config from './config'
+
 // import LogoImg from 'images/test-icon.png';
 
 export default class AuthService {
-  constructor(clientId, domain) {
+  constructor() {
     // Configure Auth0 lock
-    this.lock = new Auth0Lock(clientId, domain, {
+    this.lock = new Auth0Lock(config.AUTH0_CLIENT_ID, config.AUTH0_DOMAIN, {
       auth: {
         redirectUrl: 'http://localhost:3000/callback',
         responseType: 'token'

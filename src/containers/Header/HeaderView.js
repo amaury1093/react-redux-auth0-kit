@@ -1,8 +1,10 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+
+import AuthService from '../../utils/AuthService'
 import './Header.css'
 
-const Header = ({ isAuthenticated, profile, error, onLoginClick, onLogoutClick }) =>
+const Header = ({ isAuthenticated, profile, error, loginRequest, logoutSuccess }) =>
   <div>
     <h1>React Redux Auth0 Kit</h1>
     <ul className="list-inline">
@@ -10,12 +12,19 @@ const Header = ({ isAuthenticated, profile, error, onLoginClick, onLogoutClick }
       <li><Link to='/about'>About</Link></li>
     </ul>
     { !isAuthenticated ? (
-      <button onClick={this.props.loginRequest}>Login</button>
+      <button onClick={loginRequest}>Login</button>
     ) : (
       <div>
-        <img src={profile.picture} height="40px" />
+        <img src={profile.picture} height="40px" alt="profile" />
         <span>Welcome, {profile.nickname}</span>
-        <button onClick={this.props.logoutSuccess}>Logout</button>
+        <button 
+          onClick={() => {
+            logoutSuccess()
+            AuthService.logout()
+          }}
+        >
+          Logout
+        </button>
       </div>
     )}
     { error &&

@@ -1,5 +1,5 @@
 import React from 'react'
-import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
 import HeaderContainer from '../Header/HeaderContainer'
 import HomePage from '../../components/HomePage/HomePage'
@@ -9,7 +9,7 @@ import AuthService from '../../utils/AuthService'
 
 class App extends React.Component {
 
-  authService = new AuthService(process.env.AUTH0_CLIENT_ID, process.env.AUTH0_DOMAIN)
+  authService = new AuthService()
 
   componentWillMount() {
     // Add callback for lock's `authenticated` event
@@ -28,21 +28,23 @@ class App extends React.Component {
 
   render() {
     return(
-      <div>
-        <HeaderContainer />
-        <Router>
-          <Route exact path="/" component={HomePage}/>
-          <Route path="/about" component={AboutPage}/>
-          <Route path="*" component={NotFoundPage}/>
-        </Router>
-      </div>
+      <Router>
+        <div>
+          <HeaderContainer />
+          <Switch>
+            <Route exact path="/" component={HomePage}/>
+            <Route path="/about" component={AboutPage}/>
+            <Route component={NotFoundPage}/>
+          </Switch>
+        </div>
+      </Router>
     )
   }
 }
 
 App.propTypes = {
-  children: React.PropTypes.element.isRequired,
-  checkLogin: React.PropTypes.func.isRequired
+  loginSuccess: React.PropTypes.func.isRequired,
+  loginError: React.PropTypes.func.isRequired
 }
 
 export default App
