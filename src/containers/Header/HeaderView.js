@@ -42,6 +42,10 @@ const Header = ({ authService, history, isAuthenticated, profile, error, loginRe
   </div>
 
 Header.propTypes = {
+  authService: PropTypes.object.isRequired,
+  history: PropTypes.shape({
+    push: PropTypes.func.isRequired,
+  }).isRequired,
   isAuthenticated: PropTypes.bool.isRequired,
   profile: PropTypes.object,
   error: PropTypes.string,

@@ -46,6 +46,9 @@ class App extends React.Component {
 }
 
 App.propTypes = {
+  history: PropTypes.shape({
+    push: PropTypes.func.isRequired,
+  }).isRequired,
   loginSuccess: PropTypes.func.isRequired,
   loginError: PropTypes.func.isRequired
 }
