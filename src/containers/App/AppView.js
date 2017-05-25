@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import { Switch, Route } from 'react-router-dom'
 
 import HeaderContainer from '../Header/HeaderContainer'
 import HomePage from '../../components/HomePage/HomePage'
@@ -20,25 +20,27 @@ class App extends React.Component {
           return this.props.loginError(error)
         AuthService.setToken(authResult.idToken) // static method
         AuthService.setProfile(profile) // static method
-        return this.props.loginSuccess(profile)
+        this.props.loginSuccess(profile)
+        return this.props.history.push({ pathname: '/' })
       })
     })
     // Add callback for lock's `authorization_error` event
-    this.authService.lock.on('authorization_error', (error) => this.props.loginError(error))
+    this.authService.lock.on('authorization_error', (error) => {
+      this.props.loginError(error)
+      return this.props.history.push({ pathname: '/' })
+    })
   }
 
   render() {
     return(
-      <Router>
-        <div>
-          <HeaderContainer authService={this.authService} />
-          <Switch>
-            <Route exact path="/" component={HomePage}/>
-            <Route path="/about" component={AboutPage}/>
-            <Route component={NotFoundPage}/>
-          </Switch>
-        </div>
-      </Router>
+      <div>
+        <HeaderContainer authService={this.authService} />
+        <Switch>
+          <Route path="/" component={HomePage}/>
+          <Route path="/about" component={AboutPage}/>
+          <Route component={NotFoundPage}/>
+        </Switch>
+      </div>
     )
   }
 }

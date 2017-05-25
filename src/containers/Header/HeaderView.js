@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 import AuthService from '../../utils/AuthService'
 import './Header.css'
 
-const Header = ({ authService, isAuthenticated, profile, error, loginRequest, logoutSuccess }) =>
+const Header = ({ authService, history, isAuthenticated, profile, error, loginRequest, logoutSuccess }) =>
   <div>
     <h1>React Redux Auth0 Kit</h1>
     <ul className="list-inline">
@@ -29,6 +29,7 @@ const Header = ({ authService, isAuthenticated, profile, error, loginRequest, lo
           onClick={() => {
             logoutSuccess()
             AuthService.logout() // careful, this is a static method
+            history.push({ pathname: '/' })
           }}
         >
           Logout

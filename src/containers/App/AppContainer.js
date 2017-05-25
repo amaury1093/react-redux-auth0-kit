@@ -1,17 +1,19 @@
 import { connect } from 'react-redux'
 import { loginSuccess, loginError } from '../../actions'
+import { withRouter } from 'react-router'
+
 import AppView from './AppView'
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    loginSuccess: () => dispatch(loginSuccess()),
-    loginError: () => dispatch(loginError())
+    loginSuccess: (profile) => dispatch(loginSuccess(profile)),
+    loginError: (error) => dispatch(loginError(error))
   }
 }
 
 const AppContainer = connect(
   null, // no mapStateToProps
   mapDispatchToProps
-)(AppView)
+)(withRouter(AppView))
 
 export default AppContainer
