@@ -70,7 +70,7 @@ This boilerplate project includes React-friendly ESLint configuration. Run the f
 
 ## Testing
 
-`yarn test` to run all tests. I use mocha/chai to run tests, and [enzyme](https://github.com/airbnb/enzyme) for unit testing React components.
+`yarn test` to run all tests. I use jest/chai to run tests, and [enzyme](https://github.com/airbnb/enzyme) for unit testing React components.
 
 ## Deployment
 
