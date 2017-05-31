@@ -36,7 +36,7 @@ class App extends React.Component {
       <div>
         <HeaderContainer authService={this.authService} />
         <Switch>
-          <Route path="/" component={HomePage}/>
+          <Route exact path="/" component={HomePage}/>
           <Route path="/about" component={AboutPage}/>
           <Route component={NotFoundPage}/>
         </Switch>

@@ -20,9 +20,9 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-const HeaderContainer = connect(
+const HeaderContainer = withRouter(connect(
   mapStateToProps,
   mapDispatchToProps
-)(withRouter(HeaderView))
+)(HeaderView))
 
 export default HeaderContainer
