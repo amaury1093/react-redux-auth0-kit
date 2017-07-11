@@ -85,7 +85,7 @@ export default class AuthService {
   static isTokenExpired() {
     const token = AuthService.getToken()
     if (!token) return true
-    const date = AuthService.getTokenExpirationDate(token)
+    const date = AuthService.getTokenExpirationDate()
     const offsetSeconds = 0
     if (date === null) {
       return false
