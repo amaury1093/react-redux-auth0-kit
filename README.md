@@ -66,7 +66,7 @@ HMR is unfortunately not enabled during development, because `create-react-app` 
 
 This boilerplate project includes React-friendly ESLint configuration. Run the following command to see linting errors:
 
-`yarn run eslint`
+`yarn run lint`
 
 ## Testing
 
