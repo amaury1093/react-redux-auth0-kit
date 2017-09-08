@@ -2,14 +2,17 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Switch, Route } from 'react-router-dom';
 
-import HeaderContainer from '../Header/HeaderContainer';
+import Header from '../Header/Header';
 import HomePage from '../../components/HomePage/HomePage';
 import AboutPage from '../../components/AboutPage/AboutPage';
 import NotFoundPage from '../../components/NotFoundPage/NotFoundPage';
 import AuthService from '../../utils/AuthService';
 
-class App extends React.Component {
-  authService = new AuthService()
+class AppView extends React.Component {
+  constructor() {
+    super();
+    this.authService = new AuthService();
+  }
 
   componentWillMount() {
     // Add callback for lock's `authenticated` event
@@ -32,7 +35,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <HeaderContainer authService={this.authService} />
+        <Header authService={this.authService} />
         <Switch>
           <Route exact path="/" component={HomePage} />
           <Route path="/about" component={AboutPage} />
@@ -43,7 +46,7 @@ class App extends React.Component {
   }
 }
 
-App.propTypes = {
+AppView.propTypes = {
   history: PropTypes.shape({
     push: PropTypes.func.isRequired,
   }).isRequired,
@@ -51,4 +54,4 @@ App.propTypes = {
   loginError: PropTypes.func.isRequired,
 };
 
-export default App;
+export default AppView;
