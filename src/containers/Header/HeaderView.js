@@ -1,22 +1,22 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { Link } from 'react-router-dom'
+import React from 'react';
+import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
-import AuthService from '../../utils/AuthService'
-import './Header.css'
+import AuthService from '../../utils/AuthService';
+import './Header.css';
 
 const Header = ({ authService, history, isAuthenticated, profile, error, loginRequest, logoutSuccess }) =>
-  <div>
+  (<div>
     <h1>React Redux Auth0 Kit</h1>
     <ul className="list-inline">
-      <li><Link to='/'>Home</Link></li>
-      <li><Link to='/about'>About</Link></li>
+      <li><Link to="/">Home</Link></li>
+      <li><Link to="/about">About</Link></li>
     </ul>
     { !isAuthenticated ? (
       <button
         onClick={() => {
-          authService.login()
-          loginRequest()
+          authService.login();
+          loginRequest();
         }}
       >
         Login
@@ -25,11 +25,11 @@ const Header = ({ authService, history, isAuthenticated, profile, error, loginRe
       <div>
         <img src={profile.picture} height="40px" alt="profile" />
         <span>Welcome, {profile.nickname}</span>
-        <button 
+        <button
           onClick={() => {
-            logoutSuccess()
-            AuthService.logout() // careful, this is a static method
-            history.push({ pathname: '/' })
+            logoutSuccess();
+            AuthService.logout(); // careful, this is a static method
+            history.push({ pathname: '/' });
           }}
         >
           Logout
@@ -39,7 +39,7 @@ const Header = ({ authService, history, isAuthenticated, profile, error, loginRe
     { error &&
       <p>{error}</p>
     }
-  </div>
+  </div>);
 
 Header.propTypes = {
   authService: PropTypes.object.isRequired,
@@ -50,7 +50,7 @@ Header.propTypes = {
   profile: PropTypes.object,
   error: PropTypes.string,
   loginRequest: PropTypes.func.isRequired,
-  logoutSuccess: PropTypes.func.isRequired
-}
+  logoutSuccess: PropTypes.func.isRequired,
+};
 
-export default Header
+export default Header;

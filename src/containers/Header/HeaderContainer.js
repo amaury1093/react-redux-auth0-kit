@@ -1,28 +1,26 @@
-import { connect } from 'react-redux'
-import { loginRequest, logoutSuccess } from '../../actions'
-import { withRouter } from 'react-router'
+import { connect } from 'react-redux';
+import { loginRequest, logoutSuccess } from '../../actions';
+import { withRouter } from 'react-router';
 
-import HeaderView from './HeaderView'
+import HeaderView from './HeaderView';
 
 const mapStateToProps = (state) => {
-  const { isAuthenticated, profile, error } = state.auth
+  const { isAuthenticated, profile, error } = state.auth;
   return {
     isAuthenticated,
     profile,
-    error
-  }
-}
+    error,
+  };
+};
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    loginRequest: () => dispatch(loginRequest()),
-    logoutSuccess: () => dispatch(logoutSuccess())
-  }
-}
+const mapDispatchToProps = dispatch => ({
+  loginRequest: () => dispatch(loginRequest()),
+  logoutSuccess: () => dispatch(logoutSuccess()),
+});
 
 const HeaderContainer = withRouter(connect(
   mapStateToProps,
-  mapDispatchToProps
-)(HeaderView))
+  mapDispatchToProps,
+)(HeaderView));
 
-export default HeaderContainer
+export default HeaderContainer;

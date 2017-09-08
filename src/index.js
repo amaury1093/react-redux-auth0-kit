@@ -1,12 +1,12 @@
-import React from 'react'
-import { render } from 'react-dom'
-import { Provider } from 'react-redux'
-import { BrowserRouter as Router} from 'react-router-dom'
+import React from 'react';
+import { render } from 'react-dom';
+import { Provider } from 'react-redux';
+import { BrowserRouter as Router } from 'react-router-dom';
 
-import configureStore from './store/configureStore'
-import AppContainer from './containers/App/AppContainer'
+import configureStore from './store/configureStore';
+import AppContainer from './containers/App/AppContainer';
 
-const store = configureStore()
+const store = configureStore();
 
 render(
   <Provider store={store}>
@@ -14,5 +14,5 @@ render(
       <AppContainer />
     </Router>
   </Provider>,
-  document.getElementById('root')
-)
+  document.getElementById('root'),
+);
