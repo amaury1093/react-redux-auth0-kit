@@ -3,8 +3,6 @@ import jwtDecode from 'jwt-decode';
 
 import config from './config';
 
-// import LogoImg from 'images/test-icon.png';
-
 export default class AuthService {
   constructor() {
     // Configure Auth0 lock
@@ -13,15 +11,14 @@ export default class AuthService {
         redirectUrl: config.REDIRECT_URL,
         responseType: 'token',
       },
-      // theme: {
-      //   logo: LogoImg,
-      //   primaryColor: "#b81b1c"
-      // },
+      theme: {
+        primaryColor: '#b81b1c',
+      },
       languageDictionary: {
         title: 'React Redux Auth0 Kit',
       },
     });
-    // binds login functions to keep this context
+    // Binds login functions to keep this context
     this.login = this.login.bind(this);
   }
 

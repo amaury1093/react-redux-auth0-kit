@@ -1,22 +1,7 @@
 {
-  "parser": "babel-eslint",
-  "parserOptions": {
-    "ecmaVersion": 6,
-    "ecmaFeatures": {
-      "jsx": true
-    }
-  },
   "env": {
     "browser": true,
     "mocha": true
-  },
-  "plugins": [
-    "react"
-  ],
-  "globals": {
-    "expect": true,
-    "sinon": true,
-    "__DEV__": true
   },
   "extends": "airbnb",
   "rules": {
