@@ -1,6 +1,6 @@
 {
   "name": "react-redux-auth0-kit",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Minimal starter boilerplate project with React, Redux, React Router and Auth0 authentication",
   "main": "server.js",
   "repository": {
