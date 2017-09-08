@@ -20,7 +20,6 @@
   "bugs": {
     "url": "https://github.com/amaurymartiny/react-redux-auth0-kit/issues"
   },
-  "homepage": "https://github.com/amaurymartiny/react-redux-auth0-kit",
   "dependencies": {
     "auth0-lock": "^10.20.0",
     "jwt-decode": "^2.2.0",
