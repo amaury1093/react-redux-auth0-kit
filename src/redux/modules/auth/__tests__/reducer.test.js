@@ -2,6 +2,8 @@ import { expect } from 'chai';
 
 import authReducer, { authTypes } from '../';
 
+require('jest-localstorage-mock'); // Provides a fake window.localStorage
+
 describe('(Reducer) auth', () => {
   it('should return the initial state', () => {
     expect(authReducer(undefined, {})).to.deep.equal({
