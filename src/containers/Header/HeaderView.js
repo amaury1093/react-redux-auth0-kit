@@ -1,56 +1,58 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { Link } from 'react-router-dom'
+import React from 'react';
+import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
-import AuthService from '../../utils/AuthService'
-import './Header.css'
+import AuthService from '../../utils/AuthService';
+import './Header.css';
 
-const Header = ({ authService, history, isAuthenticated, profile, error, loginRequest, logoutSuccess }) =>
-  <div>
+const HeaderView = ({ authService, history, auth, loginRequest, logoutSuccess }) =>
+  (<div>
     <h1>React Redux Auth0 Kit</h1>
     <ul className="list-inline">
-      <li><Link to='/'>Home</Link></li>
-      <li><Link to='/about'>About</Link></li>
+      <li><Link to="/">Home</Link></li>
+      <li><Link to="/about">About</Link></li>
     </ul>
-    { !isAuthenticated ? (
-      <button
-        onClick={() => {
-          authService.login()
-          loginRequest()
-        }}
-      >
-        Login
-      </button>
-    ) : (
+    {auth.isAuthenticated ?
       <div>
-        <img src={profile.picture} height="40px" alt="profile" />
-        <span>Welcome, {profile.nickname}</span>
-        <button 
+        <img src={auth.profile.picture} height="40px" alt="profile" />
+        <span>Welcome, {auth.profile.nickname}</span>
+        <button
           onClick={() => {
-            logoutSuccess()
-            AuthService.logout() // careful, this is a static method
-            history.push({ pathname: '/' })
+            logoutSuccess();
+            AuthService.logout(); // careful, this is a static method
+            history.push({ pathname: '/' });
           }}
         >
           Logout
         </button>
       </div>
-    )}
-    { error &&
-      <p>{error}</p>
+      :
+      <button
+        onClick={() => {
+          authService.login();
+          loginRequest();
+        }}
+      >
+        Login
+      </button>
     }
-  </div>
+    {auth.error &&
+      <p>{auth.error}</p>
+    }
+  </div>);
 
-Header.propTypes = {
-  authService: PropTypes.object.isRequired,
+HeaderView.propTypes = {
+  authService: PropTypes.object.isRequired, // eslint-disable-line
   history: PropTypes.shape({
     push: PropTypes.func.isRequired,
   }).isRequired,
-  isAuthenticated: PropTypes.bool.isRequired,
-  profile: PropTypes.object,
-  error: PropTypes.string,
+  auth: PropTypes.shape({
+    isAuthenticated: PropTypes.bool.isRequired,
+    profile: PropTypes.object,
+    error: PropTypes.string,
+  }).isRequired,
   loginRequest: PropTypes.func.isRequired,
-  logoutSuccess: PropTypes.func.isRequired
-}
+  logoutSuccess: PropTypes.func.isRequired,
+};
 
-export default Header
+export default HeaderView;
