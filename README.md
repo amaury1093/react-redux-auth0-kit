@@ -49,7 +49,7 @@ This starter kit is minimal, only the strict necessary is added.
 
 | Library | Description |
 |---------|-------------|
-|[react](https://github.com/facebook/react) | Facebook's library for building user interfaces |
+| [react](https://github.com/facebook/react) | Facebook's library for building user interfaces |
 | [redux](https://github.com/rackt/redux) | State container for JavaScript apps |
 | [react-router](https://github.com/rackt/react-router) | Declarative routing for React apps using navigational components |
 | [create-react-app](https://github.com/facebookincubator/create-react-app) | All tooling needed for react apps |
@@ -61,13 +61,15 @@ The starter kit includes a working example app that puts all of the above to use
 
 `create-react-app` takes care of tooling, development server, live reload, building, testing.
 
-HMR is unfortunately not enabled during development, because `create-react-app` doesn't support it. If you wish to directly use Webpack instead of `create-react-app`, you can eject any time by running `npm run eject`. Read [here](https://github.com/facebookincubator/create-react-app#converting-to-a-custom-setup) for more information about ejecting.
+HMR is unfortunately not enabled during development, because `create-react-app` doesn't support it.
+
+If you wish to directly use Webpack instead of `create-react-app`, you can eject any time by running `npm run eject`. Read [here](https://github.com/facebookincubator/create-react-app#converting-to-a-custom-setup) for more information about ejecting.
 
 ## Testing
 
-`npm run lint` to check linting errors. This projects follows [`eslint-config-airbnb`](https://www.npmjs.com/package/eslint-config-airbnb)
+`npm run lint` to check linting errors. This projects follows [`eslint-config-airbnb`](https://www.npmjs.com/package/eslint-config-airbnb) style.
 
-`npm test` to run all tests. I use jest/chai to run tests, and [enzyme](https://github.com/airbnb/enzyme) for unit testing React components.
+`npm test` to run all tests. This project uses jest/chai to run tests, and [enzyme](https://github.com/airbnb/enzyme) for unit testing React components.
 
 ## Deployment
 
