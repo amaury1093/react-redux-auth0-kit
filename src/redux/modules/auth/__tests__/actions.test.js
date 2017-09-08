@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import { authTypes, authActions } from '../../../../src/redux/modules/auth';
+import { authTypes, authActions } from '../';
 
 describe('(Actions) auth', () => {
   it('should create an action for LOGIN_REQUEST', () => {
@@ -10,13 +10,13 @@ describe('(Actions) auth', () => {
   });
 
   it('should create an action for LOGIN_SUCCESS', () => {
-    const fakeProfile = { fakeProperty: 'fakeValue' }
+    const fakeProfile = { fakeProperty: 'fakeValue' };
     const expectedAction = {
       type: authTypes.LOGIN_SUCCESS,
       profile: fakeProfile,
-    }
-    expect(authActions.loginSuccess(fakeProfile)).to.deep.equal(expectedAction)
-  })
+    };
+    expect(authActions.loginSuccess(fakeProfile)).to.deep.equal(expectedAction);
+  });
 
   it('should create an action for LOGIN_ERROR', () => {
     const fakeError = 'fakeError';
@@ -31,7 +31,7 @@ describe('(Actions) auth', () => {
   it('should create an action for LOGOUT_SUCCESS', () => {
     const expectedAction = {
       type: authTypes.LOGOUT_SUCCESS,
-    }
-    expect(authActions.logoutSuccess()).to.deep.equal(expectedAction)
+    };
+    expect(authActions.logoutSuccess()).to.deep.equal(expectedAction);
   });
 });

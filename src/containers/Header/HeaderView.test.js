@@ -7,10 +7,10 @@ describe('(Component) <Header />', () => {
   it('should render the correct title', () => {
     const wrapper = shallow(<HeaderView
       authService={{}}
-      history={{ push: () => {} }}
-      isAuthenticated={false}
-      loginRequest={() => {}}
-      logoutSuccess={() => {}}
+      history={{ push: () => null }}
+      auth={{ isAuthenticated: false }}
+      loginRequest={() => null}
+      logoutSuccess={() => null}
     />);
     expect(wrapper.find('h1').text()).to.equal('React Redux Auth0 Kit');
   });
