@@ -5,6 +5,7 @@ import { BrowserRouter as Router } from 'react-router-dom';
 
 import configureStore from './redux/configureStore';
 import App from './containers/App/App';
+import registerServiceWorker from './registerServiceWorker';
 
 const store = configureStore();
 
@@ -16,3 +17,4 @@ render(
   </Provider>,
   document.getElementById('root'),
 );
+registerServiceWorker();
