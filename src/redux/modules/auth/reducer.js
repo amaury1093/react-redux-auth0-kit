@@ -1,25 +1,28 @@
 import * as types from './types';
 import AuthService from '../../../utils/AuthService';
 
-export default function authReducer(state = {
-  isAuthenticated: !AuthService.isTokenExpired(),
-  isFetching: false,
-  profile: AuthService.getProfile(),
-  error: null,
-}, action) {
+export default function authReducer(
+  state = {
+    isAuthenticated: !AuthService.isTokenExpired(),
+    isFetching: false,
+    profile: AuthService.getProfile(),
+    error: null
+  },
+  action
+) {
   switch (action.type) {
     case types.LOGIN_REQUEST:
       return {
         ...state,
         isFetching: true,
-        error: null,
+        error: null
       };
     case types.LOGIN_SUCCESS:
       return {
         ...state,
         isFetching: false,
         isAuthenticated: true,
-        profile: action.profile,
+        profile: action.payload.profile
       };
     case types.LOGIN_ERROR:
       return {
@@ -27,13 +30,13 @@ export default function authReducer(state = {
         isFetching: false,
         isAuthenticated: false,
         profile: {},
-        error: action.error,
+        error: action.error
       };
     case types.LOGOUT_SUCCESS:
       return {
         ...state,
         isAuthenticated: false,
-        profile: {},
+        profile: {}
       };
     default:
       return state;
