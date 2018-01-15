@@ -9,14 +9,14 @@ export default class AuthService {
     this.lock = new Auth0Lock(config.AUTH0_CLIENT_ID, config.AUTH0_DOMAIN, {
       auth: {
         redirectUrl: config.REDIRECT_URL,
-        responseType: 'token',
+        responseType: 'token'
       },
       theme: {
-        primaryColor: '#b81b1c',
+        primaryColor: '#b81b1c'
       },
       languageDictionary: {
-        title: 'React Redux Auth0 Kit',
-      },
+        title: 'React Redux Auth0 Kit'
+      }
     });
     // Binds login functions to keep this context
     this.login = this.login.bind(this);
@@ -87,6 +87,6 @@ export default class AuthService {
     if (date === null) {
       return false;
     }
-    return !(date.valueOf() > (new Date().valueOf() + (offsetSeconds * 1000)));
+    return !(date.valueOf() > new Date().valueOf() + offsetSeconds * 1000);
   }
 }

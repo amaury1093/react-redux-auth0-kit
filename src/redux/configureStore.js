@@ -8,8 +8,7 @@ export default function configureStore(preloadedState) {
     compose(
       // applyMiddleware(), // add your middlewares here
       // Conditionally add the Redux DevTools extension enhancer if it is installed.
-      window.devToolsExtension ? window.devToolsExtension() : f => f,
-    ),
-
+      window.devToolsExtension ? window.devToolsExtension() : f => f
+    )
   );
 }

@@ -5,17 +5,15 @@ import { authActions } from '../../redux/modules/auth';
 
 import HeaderView from './HeaderView';
 
-const mapStateToProps = state => ({
-  auth: state.auth,
+const mapStateToProps = ({ auth }) => ({
+  auth
 });
 
 const mapDispatchToProps = dispatch => ({
   loginRequest: () => dispatch(authActions.loginRequest()),
-  logoutSuccess: () => dispatch(authActions.logoutSuccess()),
+  logoutSuccess: () => dispatch(authActions.logoutSuccess())
 });
 
-export default withRouter(connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)(HeaderView));
-
+export default withRouter(
+  connect(mapStateToProps, mapDispatchToProps)(HeaderView)
+);

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Switch, Route } from 'react-router-dom';
 
@@ -8,27 +8,34 @@ import AboutPage from '../../components/AboutPage/AboutPage';
 import NotFoundPage from '../../components/NotFoundPage/NotFoundPage';
 import AuthService from '../../utils/AuthService';
 
-class AppView extends React.Component {
-  constructor() {
-    super();
-    this.authService = new AuthService();
-  }
+class AppView extends Component {
+  static propTypes = {
+    history: PropTypes.shape({
+      push: PropTypes.func.isRequired
+    }).isRequired,
+    loginError: PropTypes.func.isRequired,
+    loginSuccess: PropTypes.func.isRequired
+  };
 
   componentWillMount() {
+    this.authService = new AuthService();
+
     // Add callback for lock's `authenticated` event
-    this.authService.lock.on('authenticated', (authResult) => {
+    this.authService.lock.on('authenticated', authResult => {
       this.authService.lock.getProfile(authResult.idToken, (error, profile) => {
-        if (error) { return this.props.loginError(error); }
+        if (error) {
+          return this.props.loginError(error);
+        }
         AuthService.setToken(authResult.idToken); // static method
         AuthService.setProfile(profile); // static method
         this.props.loginSuccess(profile);
-        return this.props.history.push({ pathname: '/' });
+        this.props.history.push({ pathname: '/' });
       });
     });
     // Add callback for lock's `authorization_error` event
-    this.authService.lock.on('authorization_error', (error) => {
+    this.authService.lock.on('authorization_error', error => {
       this.props.loginError(error);
-      return this.props.history.push({ pathname: '/' });
+      this.props.history.push({ pathname: '/' });
     });
   }
 
@@ -45,13 +52,5 @@ class AppView extends React.Component {
     );
   }
 }
-
-AppView.propTypes = {
-  history: PropTypes.shape({
-    push: PropTypes.func.isRequired,
-  }).isRequired,
-  loginSuccess: PropTypes.func.isRequired,
-  loginError: PropTypes.func.isRequired,
-};
 
 export default AppView;
