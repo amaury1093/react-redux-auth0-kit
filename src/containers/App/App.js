@@ -6,10 +6,12 @@ import AppView from './AppView';
 
 const mapDispatchToProps = dispatch => ({
   loginSuccess: profile => dispatch(authActions.loginSuccess(profile)),
-  loginError: error => dispatch(authActions.loginError(error)),
+  loginError: error => dispatch(authActions.loginError(error))
 });
 
-export default withRouter(connect(
-  null, // no mapStateToProps
-  mapDispatchToProps,
-)(AppView));
+export default withRouter(
+  connect(
+    null, // no mapStateToProps
+    mapDispatchToProps
+  )(AppView)
+);
