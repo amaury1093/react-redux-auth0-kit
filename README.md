@@ -57,7 +57,6 @@ This starter kit is minimal, only the strict necessary is added.
 | [redux](https://github.com/rackt/redux) | State container for JavaScript apps |
 | [react-router](https://github.com/rackt/react-router) | Declarative routing for React apps using navigational components |
 | [create-react-app](https://github.com/facebookincubator/create-react-app) | All tooling needed for react apps |
-| [eslint](http://eslint.org) | Code linting tool, using [`eslint-config-airbnb`](https://www.npmjs.com/package/eslint-config-airbnb) |
 
 The starter kit includes a working example app that puts all of the above to use.
 
@@ -71,9 +70,9 @@ If you wish to directly use Webpack instead of `create-react-app`, you can eject
 
 ## Testing
 
-`npm run lint` to check linting errors. This projects follows [`eslint-config-airbnb`](https://www.npmjs.com/package/eslint-config-airbnb) style.
+`npm run lint` to check linting errors. This projects follows [`eslint-config-react-app`](https://github.com/facebookincubator/create-react-app/tree/master/packages/eslint-config-react-app) style.
 
-`npm test` to run all tests. This project uses jest/chai to run tests, and [enzyme](https://github.com/airbnb/enzyme) for unit testing React components.
+`npm test` to run all tests. This project uses jest to run tests, and [enzyme](https://github.com/airbnb/enzyme) for unit testing React components.
 
 ## Deployment
 
@@ -90,4 +89,4 @@ MIT. See LICENSE file.
 
 ## Donations
 
-If you like this project, I would really appreciate small donations. Here's my Bitcoin address: 1MN35ofAhYQVf1oYNmxEeuBiYwD4sdYDRu.
+If you like this project, I would really appreciate small donations. Here's my Ethereum address: 0xa395447BF15f7525484C0378c76627D45ADE0B96.
