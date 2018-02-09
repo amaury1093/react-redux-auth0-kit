@@ -38,25 +38,26 @@ Auth0 helps you to:
 
 ### AuthService
 
-The library `auth0-lock` provides the user authentication, and I also have a `src/utils/AuthService.js` class to wrap this Lock Widget usage and manage the localStorage items.
+The library `auth0-lock` provides the user authentication, and I also have a `src/utils/AuthService.js` module to wrap this Lock Widget usage and manage the localStorage items.
 
-I'm using the latest Auth0 Lock 10 version in redirect mode, which means here's the flow:
+I'm using the latest Auth0 Lock 10 version in [popup mode](https://auth0.com/docs/libraries/lock/v11/authentication-modes#popup-mode), which means here's the flow:
+
 * ->Login widget shows login panel
-* ->Redirect to auth0 to check login creds
-* ->Redirect back to localhost:3000/callback
-* ->Instantiated AuthService waits for 'authenticated' event to fire
+* ->Redirect to auth0 to check login creds (done in hidden iframe)
+* ->Redirect back to localhost:3000/callback (done in hidden iframe)
+* ->AuthService waits for 'authenticated' event to fire
 * ->Redirects back to homepage
 
 ### Libraries
 
 This starter kit is minimal, only the strict necessary is added.
 
-| Library | Description |
-|---------|-------------|
-| [react](https://github.com/facebook/react) | Facebook's library for building user interfaces |
-| [redux](https://github.com/rackt/redux) | State container for JavaScript apps |
-| [react-router](https://github.com/rackt/react-router) | Declarative routing for React apps using navigational components |
-| [create-react-app](https://github.com/facebookincubator/create-react-app) | All tooling needed for react apps |
+| Library                                                                   | Description                                                      |
+| ------------------------------------------------------------------------- | ---------------------------------------------------------------- |
+| [react](https://github.com/facebook/react)                                | Facebook's library for building user interfaces                  |
+| [redux](https://github.com/rackt/redux)                                   | State container for JavaScript apps                              |
+| [react-router](https://github.com/rackt/react-router)                     | Declarative routing for React apps using navigational components |
+| [create-react-app](https://github.com/facebookincubator/create-react-app) | All tooling needed for react apps                                |
 
 The starter kit includes a working example app that puts all of the above to use.
 
@@ -84,8 +85,8 @@ MIT. See LICENSE file.
 
 ## Future ideas
 
-- [ ] Add a side effects library (`redux-saga`, `redux-observable`) to manage side effects. It makes the code more React/Redux-compliant, however it goes against minimalism.
-- [ ] Any other ideas are welcome! Just post an issue.
+* [ ] Add a side effects library (`redux-saga`, `redux-observable`) to manage side effects. It makes the code more redux-compliant, however it goes against minimalism.
+* [ ] Any other ideas are welcome! Just post an issue.
 
 ## Donations
 
