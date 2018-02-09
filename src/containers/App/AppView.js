@@ -6,7 +6,7 @@ import Header from '../Header/Header';
 import HomePage from '../../components/HomePage/HomePage';
 import AboutPage from '../../components/AboutPage/AboutPage';
 import NotFoundPage from '../../components/NotFoundPage/NotFoundPage';
-import AuthService from '../../utils/AuthService';
+import * as AuthService from '../../utils/AuthService';
 
 class AppView extends Component {
   static propTypes = {
@@ -19,25 +19,21 @@ class AppView extends Component {
 
   componentWillMount() {
     const { history, loginError, loginSuccess } = this.props;
-    this.authService = new AuthService();
     // Add callback for lock's `authenticated` event
-    this.authService.lock.on('authenticated', authResult => {
-      this.authService.lock.getUserInfo(
-        authResult.accessToken,
-        (error, profile) => {
-          if (error) {
-            return loginError(error);
-          }
-          AuthService.setToken(authResult.idToken); // static method
-          AuthService.setProfile(profile); // static method
-          loginSuccess(profile);
-          history.push({ pathname: '/' });
-          this.authService.lock.hide();
+    AuthService.lock.on('authenticated', authResult => {
+      AuthService.lock.getUserInfo(authResult.accessToken, (error, profile) => {
+        if (error) {
+          return loginError(error);
         }
-      );
+        AuthService.setToken(authResult.idToken); // static method
+        AuthService.setProfile(profile); // static method
+        loginSuccess(profile);
+        history.push({ pathname: '/' });
+        AuthService.lock.hide();
+      });
     });
     // Add callback for lock's `authorization_error` event
-    this.authService.lock.on('authorization_error', error => {
+    AuthService.lock.on('authorization_error', error => {
       loginError(error);
       history.push({ pathname: '/' });
     });
@@ -46,7 +42,7 @@ class AppView extends Component {
   render() {
     return (
       <div>
-        <Header authService={this.authService} />
+        <Header />
         <Switch>
           <Route exact path="/" component={HomePage} />
           <Route path="/about" component={AboutPage} />

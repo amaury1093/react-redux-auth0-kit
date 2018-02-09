@@ -1,5 +1,5 @@
 import * as types from './types';
-import AuthService from '../../../utils/AuthService';
+import * as AuthService from '../../../utils/AuthService';
 
 const authReducer = (
   state = {

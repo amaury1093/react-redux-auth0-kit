@@ -2,12 +2,11 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
-import AuthService from '../../utils/AuthService';
+import * as AuthService from '../../utils/AuthService';
 import './Header.css';
 
 class HeaderView extends Component {
   static propTypes = {
-    authService: PropTypes.object.isRequired,
     history: PropTypes.shape({
       push: PropTypes.func.isRequired
     }).isRequired,
@@ -21,7 +20,7 @@ class HeaderView extends Component {
   };
 
   handleLoginClick = () => {
-    this.props.authService.login();
+    AuthService.login();
     this.props.loginRequest();
   };
 
