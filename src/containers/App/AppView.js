@@ -18,24 +18,28 @@ class AppView extends Component {
   };
 
   componentWillMount() {
+    const { history, loginError, loginSuccess } = this.props;
     this.authService = new AuthService();
-
     // Add callback for lock's `authenticated` event
     this.authService.lock.on('authenticated', authResult => {
-      this.authService.lock.getProfile(authResult.idToken, (error, profile) => {
-        if (error) {
-          return this.props.loginError(error);
+      this.authService.lock.getUserInfo(
+        authResult.accessToken,
+        (error, profile) => {
+          if (error) {
+            return loginError(error);
+          }
+          AuthService.setToken(authResult.idToken); // static method
+          AuthService.setProfile(profile); // static method
+          loginSuccess(profile);
+          history.push({ pathname: '/' });
+          this.authService.lock.hide();
         }
-        AuthService.setToken(authResult.idToken); // static method
-        AuthService.setProfile(profile); // static method
-        this.props.loginSuccess(profile);
-        this.props.history.push({ pathname: '/' });
-      });
+      );
     });
     // Add callback for lock's `authorization_error` event
     this.authService.lock.on('authorization_error', error => {
-      this.props.loginError(error);
-      this.props.history.push({ pathname: '/' });
+      loginError(error);
+      history.push({ pathname: '/' });
     });
   }
 

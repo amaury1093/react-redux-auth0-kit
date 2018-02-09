@@ -14,7 +14,7 @@ class HeaderView extends Component {
     auth: PropTypes.shape({
       isAuthenticated: PropTypes.bool.isRequired,
       profile: PropTypes.object,
-      error: PropTypes.string
+      error: PropTypes.object
     }).isRequired,
     loginRequest: PropTypes.func.isRequired,
     logoutSuccess: PropTypes.func.isRequired

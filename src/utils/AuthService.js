@@ -9,7 +9,7 @@ export default class AuthService {
     this.lock = new Auth0Lock(config.AUTH0_CLIENT_ID, config.AUTH0_DOMAIN, {
       auth: {
         redirectUrl: config.REDIRECT_URL,
-        responseType: 'token'
+        responseType: 'token id_token'
       },
       theme: {
         primaryColor: '#b81b1c'
@@ -18,8 +18,6 @@ export default class AuthService {
         title: 'React Redux Auth0 Kit'
       }
     });
-    // Binds login functions to keep this context
-    this.login = this.login.bind(this);
   }
 
   // ======================================================
