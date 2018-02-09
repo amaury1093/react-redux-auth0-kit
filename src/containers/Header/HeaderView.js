@@ -2,26 +2,25 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
-import AuthService from '../../utils/AuthService';
+import * as AuthService from '../../utils/AuthService';
 import './Header.css';
 
 class HeaderView extends Component {
   static propTypes = {
-    authService: PropTypes.object.isRequired,
     history: PropTypes.shape({
       push: PropTypes.func.isRequired
     }).isRequired,
     auth: PropTypes.shape({
       isAuthenticated: PropTypes.bool.isRequired,
       profile: PropTypes.object,
-      error: PropTypes.string
+      error: PropTypes.object
     }).isRequired,
     loginRequest: PropTypes.func.isRequired,
     logoutSuccess: PropTypes.func.isRequired
   };
 
   handleLoginClick = () => {
-    this.props.authService.login();
+    AuthService.login();
     this.props.loginRequest();
   };
 

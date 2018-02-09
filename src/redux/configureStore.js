@@ -1,8 +1,8 @@
 import { compose, createStore } from 'redux';
 import rootReducer from './reducer';
 
-export default function configureStore(preloadedState) {
-  return createStore(
+const configureStore = preloadedState =>
+  createStore(
     rootReducer,
     preloadedState,
     compose(
@@ -11,4 +11,5 @@ export default function configureStore(preloadedState) {
       window.devToolsExtension ? window.devToolsExtension() : f => f
     )
   );
-}
+
+export default configureStore;

@@ -278,22 +278,22 @@ asynckit@^0.4.0:
   version "0.4.0"
   resolved "https://registry.yarnpkg.com/asynckit/-/asynckit-0.4.0.tgz#c79ed97f7f34cb8f2ba1bc9790bcc366474b4b79"
 
-auth0-js@~8.12.1:
-  version "8.12.2"
-  resolved "https://registry.yarnpkg.com/auth0-js/-/auth0-js-8.12.2.tgz#ab46cd180f9500de3d68610f49432f674f9dc5cd"
+auth0-js@^9.2.1:
+  version "9.2.2"
+  resolved "https://registry.yarnpkg.com/auth0-js/-/auth0-js-9.2.2.tgz#06930079c225e2ca9338308cbccbb04730f5155c"
   dependencies:
     base64-js "^1.2.0"
-    idtoken-verifier "^1.1.0"
+    idtoken-verifier "^1.1.1"
     qs "^6.4.0"
-    superagent "^3.3.1"
+    superagent "^3.8.2"
     url-join "^1.1.0"
     winchan "^0.2.0"
 
-auth0-lock@^10.20.0:
-  version "10.24.2"
-  resolved "https://registry.yarnpkg.com/auth0-lock/-/auth0-lock-10.24.2.tgz#4a3fc9d8539816378b9f70b0473a4b8c9db8c90e"
+auth0-lock@^11.2.3:
+  version "11.2.3"
+  resolved "https://registry.yarnpkg.com/auth0-lock/-/auth0-lock-11.2.3.tgz#1aecf70ae2554b41cf3ca49d147a0fa90ff1f218"
   dependencies:
-    auth0-js "~8.12.1"
+    auth0-js "^9.2.1"
     blueimp-md5 "2.3.1"
     fbjs "^0.3.1"
     idtoken-verifier "^1.0.1"
@@ -304,7 +304,6 @@ auth0-lock@^10.20.0:
     react "^15.6.2"
     react-dom "^15.6.2"
     react-transition-group "^2.2.1"
-    superagent "^3.3.1"
     trim "0.0.1"
     url-join "^1.1.0"
 
@@ -3291,7 +3290,7 @@ icss-utils@^2.1.0:
   dependencies:
     postcss "^6.0.1"
 
-idtoken-verifier@^1.0.1, idtoken-verifier@^1.1.0:
+idtoken-verifier@^1.0.1:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/idtoken-verifier/-/idtoken-verifier-1.1.0.tgz#1add30125aa3e5e5859d152b356a908a8e2eb5a0"
   dependencies:
@@ -3299,6 +3298,16 @@ idtoken-verifier@^1.0.1, idtoken-verifier@^1.1.0:
     crypto-js "^3.1.9-1"
     jsbn "^0.1.0"
     superagent "^3.3.1"
+    url-join "^1.1.0"
+
+idtoken-verifier@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/idtoken-verifier/-/idtoken-verifier-1.1.1.tgz#bc6eb46e6a153bb2058aed1cac2c27ac6751b5e5"
+  dependencies:
+    base64-js "^1.2.0"
+    crypto-js "^3.1.9-1"
+    jsbn "^0.1.0"
+    superagent "^3.8.2"
     url-join "^1.1.0"
 
 ieee754@^1.1.4:
@@ -6348,7 +6357,7 @@ style-loader@0.19.0:
     loader-utils "^1.0.2"
     schema-utils "^0.3.0"
 
-superagent@^3.3.1:
+superagent@^3.3.1, superagent@^3.8.2:
   version "3.8.2"
   resolved "https://registry.yarnpkg.com/superagent/-/superagent-3.8.2.tgz#e4a11b9d047f7d3efeb3bbe536d9ec0021d16403"
   dependencies:

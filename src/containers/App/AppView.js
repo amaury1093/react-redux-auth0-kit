@@ -6,7 +6,7 @@ import Header from '../Header/Header';
 import HomePage from '../../components/HomePage/HomePage';
 import AboutPage from '../../components/AboutPage/AboutPage';
 import NotFoundPage from '../../components/NotFoundPage/NotFoundPage';
-import AuthService from '../../utils/AuthService';
+import * as AuthService from '../../utils/AuthService';
 
 class AppView extends Component {
   static propTypes = {
@@ -18,31 +18,31 @@ class AppView extends Component {
   };
 
   componentWillMount() {
-    this.authService = new AuthService();
-
+    const { history, loginError, loginSuccess } = this.props;
     // Add callback for lock's `authenticated` event
-    this.authService.lock.on('authenticated', authResult => {
-      this.authService.lock.getProfile(authResult.idToken, (error, profile) => {
+    AuthService.lock.on('authenticated', authResult => {
+      AuthService.lock.getUserInfo(authResult.accessToken, (error, profile) => {
         if (error) {
-          return this.props.loginError(error);
+          return loginError(error);
         }
         AuthService.setToken(authResult.idToken); // static method
         AuthService.setProfile(profile); // static method
-        this.props.loginSuccess(profile);
-        this.props.history.push({ pathname: '/' });
+        loginSuccess(profile);
+        history.push({ pathname: '/' });
+        AuthService.lock.hide();
       });
     });
     // Add callback for lock's `authorization_error` event
-    this.authService.lock.on('authorization_error', error => {
-      this.props.loginError(error);
-      this.props.history.push({ pathname: '/' });
+    AuthService.lock.on('authorization_error', error => {
+      loginError(error);
+      history.push({ pathname: '/' });
     });
   }
 
   render() {
     return (
       <div>
-        <Header authService={this.authService} />
+        <Header />
         <Switch>
           <Route exact path="/" component={HomePage} />
           <Route path="/about" component={AboutPage} />
