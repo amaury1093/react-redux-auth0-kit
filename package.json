@@ -5,7 +5,7 @@
   "main": "server.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/amaurymartiny/react-redux-auth0-kit.git"
+    "url": "https://github.com/amaurym/react-redux-auth0-kit.git"
   },
   "keywords": [
     "react",
@@ -15,10 +15,10 @@
     "boilerplate",
     "starter"
   ],
-  "author": "Amaury Martiny",
+  "author": "Amaury <amaurym10@protonmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/amaurymartiny/react-redux-auth0-kit/issues"
+    "url": "https://github.com/amaurym/react-redux-auth0-kit/issues"
   },
   "dependencies": {
     "auth0-lock": "^11.21.0",
